@@ -48,7 +48,17 @@ body{
  padding: 2rem 1rem;
  border-radius: 5px;
 }
-
+table,
+    th,
+    td {
+      border: 3px solid black;
+      border-collapse:collapse;
+      padding: 2px;
+    }
+    th{
+      font-size: 20px;
+    }
+    
 label{
     font-size: 20px;
 }
