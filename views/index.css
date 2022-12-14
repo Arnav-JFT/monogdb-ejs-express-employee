@@ -16,10 +16,11 @@ body{
 }
 .heading{
     
-    color: blueviolet;
+    color: #000;
     font-weight: 600;
     font-size: 20px;
 }
+
 
 
 .main{
@@ -58,7 +59,7 @@ table,
     th{
       font-size: 20px;
     }
-    
+
 label{
     font-size: 20px;
 }
