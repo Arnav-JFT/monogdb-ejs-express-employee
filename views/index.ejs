@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../index.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div class="heading">
+      <h1><u>Employee Form</u></h1>
+    </div>
+    <div class="main">
+      <div class="main__form">
+      <form  method="POST" action="/postData">
+        <div>
+          <label for="">Name</label>
+          <input required id="name" name="name" value="<%=obj.name%>" type="text" />
+        </div>
+        <div>
+          <label for="">Job</label>
+          <input required id="job" name="job" value="<%=obj.job%>" type="text" />
+        </div>
+        <div> 
+          <label for="">Salary</label>
+          <input required id="salary" name="salary" value="<%=obj.salary%>" type="number" />
+        </div>
+        
+        <button id="btn" type="submit">Add</button>
+        <button formaction="/update/<%=obj.id%>" method="POST" id="edit" type="submit">Update</button>
+
+      </form>
+    </div>
+    <div class="table">
+      <table id="tb">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.map((ele)=>{ %>
+          <tr>
+            <td><%=ele.name%></td>
+            <td><%=ele.job%></td>
+            <td><%=ele.salary%></td>
+            <td>
+              <!-- delete button logic -->
+              <form
+                id="delete"
+                action="/delete/<%=ele.id%>"
+                method="POST"
+              >
+                <button type="submit" class="ui red basic button">Delete</button>
+              </form>
+              <!-- PUT BUTTON LOGIC -->
+              <form
+                id="delete"
+                action="/edit/<%=ele.id%>"
+                method="POST"
+              >
+            <button id="edit" type="submit">Edit</button>
+            </form>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="rp.js"></script>
+</html>
